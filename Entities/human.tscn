@@ -175,6 +175,7 @@ height = 40.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=669052450]
 sprite_frames = SubResource("SpriteFrames_66ll3")
 animation = &"idle"
+autoplay = "idle"
 frame_progress = 0.5309742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585949678]

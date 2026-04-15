@@ -11,13 +11,29 @@ config_version=5
 [application]
 
 config/name="Abduction"
+run/main_scene="uid://cfms84dt6c1pc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Entities/": "green",
+"res://src/": "blue"
+}
+
+[gui]
+
+theme/default_font_generate_mipmaps=true
 
 [physics]
 
@@ -27,3 +43,4 @@ window/size/viewport_height=360
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/default_filters/use_nearest_mipmap_filter=true

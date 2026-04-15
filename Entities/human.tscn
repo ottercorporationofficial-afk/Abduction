@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ga6sxr7qdr31"]
 
 [ext_resource type="Texture2D" uid="uid://p4vemv77xaxb" path="res://Art/male_hero-idle.png" id="1_86l0o"]
+[ext_resource type="Script" uid="uid://dtcxflqeypscr" path="res://Entities/human.gd" id="1_kodwx"]
 [ext_resource type="Texture2D" uid="uid://cq6of6tlep4gc" path="res://Art/male_hero-walk.png" id="2_f3uon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qekv"]
@@ -170,7 +171,11 @@ animations = [{
 radius = 12.0
 height = 40.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kodwx"]
+radius = 21.095022
+
 [node name="Human" type="CharacterBody2D" unique_id=75959660]
+script = ExtResource("1_kodwx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=669052450]
 sprite_frames = SubResource("SpriteFrames_66ll3")
@@ -180,3 +185,11 @@ frame_progress = 0.5309742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585949678]
 shape = SubResource("CapsuleShape2D_0n6mi")
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=790012575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=839326471]
+shape = SubResource("CircleShape2D_kodwx")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

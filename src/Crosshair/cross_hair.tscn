@@ -7,9 +7,9 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gx1"]
 shader = ExtResource("2_w5l70")
 shader_parameter/color = Color(0.29626337, 0.19730896, 0.23441276, 1)
-shader_parameter/diameter = 1.0
-shader_parameter/thickness = 0.1
-shader_parameter/frequency = 0.0
+shader_parameter/diameter = 0.66
+shader_parameter/thickness = 0.015
+shader_parameter/frequency = 0.57
 shader_parameter/phase = 0.0
 shader_parameter/edge_width = 0.1
 

@@ -15,6 +15,10 @@ run/main_scene="uid://cfms84dt6c1pc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TweenFX="*uid://d2n10rw2dnx8o"
+
 [display]
 
 window/size/viewport_width=1920
@@ -22,6 +26,11 @@ window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://behee26ulw807"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/TweenFX/plugin.cfg")
 
 [file_customization]
 

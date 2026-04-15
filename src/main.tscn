@@ -1,8 +1,33 @@
 [gd_scene format=3 uid="uid://cfms84dt6c1pc"]
 
-[ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://4akyte21j580" path="res://src/main.gd" id="1_5q4o7"]
+[ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://c3hvqx4a3lsxc" path="res://src/Crosshair/cross_hair.tscn" id="2_gh0ne"]
 
 [node name="Main" type="Node2D" unique_id=1237780417]
+script = ExtResource("1_5q4o7")
 
-[node name="Human" parent="." unique_id=75959660 instance=ExtResource("1_ig7tw")]
-position = Vector2(253, 172)
+[node name="Human" parent="." unique_id=75959660 instance=ExtResource("1_eewff")]
+position = Vector2(138, 194)
+
+[node name="Human2" parent="." unique_id=1235396715 instance=ExtResource("1_eewff")]
+position = Vector2(38, 57)
+
+[node name="Human3" parent="." unique_id=626231326 instance=ExtResource("1_eewff")]
+position = Vector2(312, 12)
+
+[node name="Human4" parent="." unique_id=1688401973 instance=ExtResource("1_eewff")]
+position = Vector2(204, -7)
+
+[node name="Human5" parent="." unique_id=1927308994 instance=ExtResource("1_eewff")]
+position = Vector2(106, 141)
+
+[node name="Human6" parent="." unique_id=1347546632 instance=ExtResource("1_eewff")]
+position = Vector2(91, -21)
+
+[node name="Human7" parent="." unique_id=2134047169 instance=ExtResource("1_eewff")]
+position = Vector2(-47, 104)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=120662471]
+
+[node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("2_gh0ne")]

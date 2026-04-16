@@ -2,32 +2,32 @@
 
 [ext_resource type="Script" uid="uid://4akyte21j580" path="res://src/main.gd" id="1_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="1_eewff"]
-[ext_resource type="PackedScene" uid="uid://c3hvqx4a3lsxc" path="res://src/Crosshair/cross_hair.tscn" id="2_gh0ne"]
+[ext_resource type="PackedScene" uid="uid://bc0e58r0jgmo8" path="res://src/UI/hud.tscn" id="3_5q4o7"]
+[ext_resource type="PackedScene" uid="uid://l711wtrb1h81" path="res://src/UI/levelselection.tscn" id="4_3cfgd"]
 
 [node name="Main" type="Node2D" unique_id=1237780417]
 script = ExtResource("1_5q4o7")
 
 [node name="Human" parent="." unique_id=75959660 instance=ExtResource("1_eewff")]
-position = Vector2(138, 194)
+position = Vector2(949, 545)
 
-[node name="Human2" parent="." unique_id=1235396715 instance=ExtResource("1_eewff")]
-position = Vector2(38, 57)
+[node name="HUD" parent="." unique_id=673640033 instance=ExtResource("3_5q4o7")]
 
-[node name="Human3" parent="." unique_id=626231326 instance=ExtResource("1_eewff")]
-position = Vector2(312, 12)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=465916995]
+position = Vector2(960, 540)
 
-[node name="Human4" parent="." unique_id=1688401973 instance=ExtResource("1_eewff")]
-position = Vector2(204, -7)
-
-[node name="Human5" parent="." unique_id=1927308994 instance=ExtResource("1_eewff")]
-position = Vector2(106, 141)
-
-[node name="Human6" parent="." unique_id=1347546632 instance=ExtResource("1_eewff")]
-position = Vector2(91, -21)
-
-[node name="Human7" parent="." unique_id=2134047169 instance=ExtResource("1_eewff")]
-position = Vector2(-47, 104)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=120662471]
-
-[node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("2_gh0ne")]
+[node name="LevelSelector" parent="." unique_id=2011978141 instance=ExtResource("4_3cfgd")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 548.0
+offset_top = 220.0
+offset_right = 998.0
+offset_bottom = 527.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4

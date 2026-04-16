@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cbsgsceevu8ay"]
+
+[ext_resource type="Script" uid="uid://rynqn2dflwas" path="res://popup.gd" id="1_dscap"]
+
+[node name="Popup" type="VBoxContainer" unique_id=1305997310]
+offset_right = 68.0
+offset_bottom = 46.0
+script = ExtResource("1_dscap")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=241878338]
+layout_mode = 2
+size_flags_vertical = 3

@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://4akyte21j580" path="res://src/main.gd" id="1_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="1_eewff"]
-[ext_resource type="PackedScene" uid="uid://bc0e58r0jgmo8" path="res://src/UI/hud.tscn" id="3_5q4o7"]
 [ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/UI/popupmanager.gd" id="4_3cfgd"]
+[ext_resource type="Texture2D" uid="uid://to5pd36xogsb" path="res://Art/Research.png" id="4_kmhfv"]
+[ext_resource type="Script" uid="uid://bc2yfcqawt5yg" path="res://src/UI/hud.gd" id="4_rlaii"]
+[ext_resource type="Script" uid="uid://crt1s8huhkshj" path="res://src/blocker.gd" id="5_5mrjc"]
+[ext_resource type="Texture2D" uid="uid://dx1q78bf5lh2x" path="res://Art/AbductButton.png" id="5_rlaii"]
+[ext_resource type="Texture2D" uid="uid://dpxnv1fy0ofmw" path="res://Art/UpgradeButton.png" id="6_5mrjc"]
 
 [node name="Main" type="Node2D" unique_id=1237780417]
 script = ExtResource("1_5q4o7")
@@ -11,14 +15,116 @@ script = ExtResource("1_5q4o7")
 [node name="Human" parent="." unique_id=75959660 instance=ExtResource("1_eewff")]
 position = Vector2(163, 160)
 
-[node name="HUD" parent="." unique_id=673640033 instance=ExtResource("3_5q4o7")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=465916995]
 position = Vector2(321, 180)
 
-[node name="PopupManager" type="Control" parent="." unique_id=380599977]
+[node name="Hud" type="CanvasLayer" parent="." unique_id=311986690]
+script = ExtResource("4_rlaii")
+
+[node name="PopupManager" type="Control" parent="Hud" unique_id=380599977]
+z_index = 100
 layout_mode = 3
 anchors_preset = 0
 offset_right = 638.0
 offset_bottom = 360.0
+mouse_filter = 2
 script = ExtResource("4_3cfgd")
+metadata/_edit_lock_ = true
+
+[node name="Blocker" type="Control" parent="Hud/PopupManager" unique_id=1430801997]
+visible = false
+z_index = 100
+anchors_preset = 0
+offset_right = 641.0
+offset_bottom = 360.0
+script = ExtResource("5_5mrjc")
+metadata/_edit_lock_ = true
+
+[node name="Darken" type="ColorRect" parent="Hud/PopupManager" unique_id=591725746]
+visible = false
+modulate = Color(0, 0, 0, 0.2784314)
+z_index = 100
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="BottomBar" type="ColorRect" parent="Hud/PopupManager" unique_id=1432106928]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.003125
+anchor_top = 0.88055557
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.99375
+offset_right = 0.9937744
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Money" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=1746159367]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.99961233
+anchor_right = 0.1203125
+anchor_bottom = 1.116279
+offset_top = -36.983334
+offset_bottom = -14.0
+theme_override_colors/font_color = Color(0.29937053, 0.74571294, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "$14,000"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Research" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=1461900460]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1859375
+anchor_top = 1.0200905
+anchor_right = 0.29791668
+anchor_bottom = 1.139535
+offset_top = -37.863888
+offset_bottom = -15.0
+theme_override_colors/font_color = Color(0.14203563, 0.6795579, 0.9999998, 1)
+theme_override_font_sizes/font_size = 20
+text = "47"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Research2" type="Sprite2D" parent="Hud/PopupManager/BottomBar" unique_id=1556376099]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(110, 20)
+scale = Vector2(1.75, 1.5625)
+texture = ExtResource("4_kmhfv")
+
+[node name="Abduct" type="TextureButton" parent="Hud/PopupManager/BottomBar" unique_id=1813990192]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8713542
+anchor_top = 0.9166667
+anchor_right = 0.9932291
+anchor_bottom = 0.9907407
+offset_left = -37.666687
+offset_top = -37.416668
+offset_right = 1.333374
+offset_bottom = -1.6018524
+texture_normal = ExtResource("5_rlaii")
+metadata/_edit_use_anchors_ = true
+
+[node name="Upgrade" type="TextureButton" parent="Hud/PopupManager/BottomBar" unique_id=774533455]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87135416
+anchor_top = 0.9166667
+anchor_right = 0.99322915
+anchor_bottom = 0.9907407
+offset_left = -157.66669
+offset_top = -37.416668
+offset_right = -118.666626
+offset_bottom = -1.6018524
+texture_normal = ExtResource("6_5mrjc")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Hud/PopupManager/BottomBar/Abduct" to="Hud" method="_on_abduct_pressed"]

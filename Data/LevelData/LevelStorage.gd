@@ -8,7 +8,7 @@ var data: Array[Level] = [
 	}),
 	Level.new({
 		"id": "desert",
-		"name": "desert",
+		"name": "Desert",
 		"cost": 100
 	})
 ]

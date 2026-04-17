@@ -21,3 +21,9 @@ func _add_level(level):
 	var level_button = LEVEL_BUTTON_SCENE.instantiate()
 	grid.add_child(level_button)
 	level_button.setup(level)
+
+
+func _on_button_pressed() -> void:
+	Globals.popups.remove_popup(self)
+	
+	

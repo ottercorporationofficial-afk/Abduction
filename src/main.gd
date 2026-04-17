@@ -1,6 +1,8 @@
 extends Node2D
-
-func _ready() -> void:
-	 
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	pass
+ 
+ 
+func _unhandled_input(event):
+	if InputBlocker.is_blocked():
+		get_viewport().set_input_as_handled()
+		return
+ 

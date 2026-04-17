@@ -5,4 +5,6 @@ extends CanvasLayer
 
 
 func _on_abduct_pressed() -> void:
-	Globals.popups.popup_scn(level_selector_scene)
+	var popup = level_selector_scene.instantiate()
+	
+	Globals.popups.add_popup(popup)

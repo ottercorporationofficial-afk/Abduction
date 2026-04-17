@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bvwm15ty43e7m"]
+
+[ext_resource type="Script" uid="uid://bc2yfcqawt5yg" path="res://src/UI/hud.gd" id="1_s5aol"]
+[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/UI/popupmanager.gd" id="2_44ltq"]
+[ext_resource type="Script" uid="uid://crt1s8huhkshj" path="res://src/blocker.gd" id="3_ywpwj"]
+[ext_resource type="Texture2D" uid="uid://to5pd36xogsb" path="res://Art/Research.png" id="4_3piki"]
+[ext_resource type="Texture2D" uid="uid://dx1q78bf5lh2x" path="res://Art/AbductButton.png" id="5_sf3sn"]
+[ext_resource type="Texture2D" uid="uid://dpxnv1fy0ofmw" path="res://Art/UpgradeButton.png" id="6_4jk7j"]
+
+[node name="Menagerie" type="Node2D" unique_id=727528694]
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1027659892]
+script = ExtResource("1_s5aol")
+
+[node name="PopupManager" type="Control" parent="Hud" unique_id=1333622888]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 638.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("2_44ltq")
+metadata/_edit_lock_ = true
+
+[node name="Blocker" type="Control" parent="Hud/PopupManager" unique_id=1814231561]
+visible = false
+z_index = 100
+anchors_preset = 0
+offset_right = 641.0
+offset_bottom = 360.0
+script = ExtResource("3_ywpwj")
+metadata/_edit_lock_ = true
+
+[node name="Darken" type="ColorRect" parent="Hud/PopupManager" unique_id=425396275]
+visible = false
+modulate = Color(0, 0, 0, 0.2784314)
+z_index = 100
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="BottomBar" type="ColorRect" parent="Hud/PopupManager" unique_id=544209376]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0015576018
+anchor_top = 0.88055557
+anchor_right = 1.0015771
+anchor_bottom = 1.0
+offset_left = 0.99375
+offset_right = 0.9937744
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Money" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=2101065542]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003125
+anchor_top = 0.99961233
+anchor_right = 0.1203125
+anchor_bottom = 1.116279
+offset_top = -36.983334
+offset_bottom = -14.0
+theme_override_colors/font_color = Color(0.29937053, 0.74571294, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "$14,000"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Research" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=473515085]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1859375
+anchor_top = 1.0200905
+anchor_right = 0.29791668
+anchor_bottom = 1.139535
+offset_top = -37.863888
+offset_bottom = -15.0
+theme_override_colors/font_color = Color(0.14203563, 0.6795579, 0.9999998, 1)
+theme_override_font_sizes/font_size = 20
+text = "47"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Research2" type="Sprite2D" parent="Hud/PopupManager/BottomBar" unique_id=68116968]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(110, 20)
+scale = Vector2(1.75, 1.5625)
+texture = ExtResource("4_3piki")
+
+[node name="Abduct" type="TextureButton" parent="Hud/PopupManager/BottomBar" unique_id=1770205573]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8729167
+anchor_top = 0.9166667
+anchor_right = 0.9947928
+anchor_bottom = 0.9907408
+offset_left = -37.666687
+offset_top = -37.416668
+offset_right = 1.333374
+offset_bottom = -1.6018524
+texture_normal = ExtResource("5_sf3sn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Upgrade" type="TextureButton" parent="Hud/PopupManager/BottomBar" unique_id=739499058]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87447923
+anchor_top = 0.9166667
+anchor_right = 0.9963553
+anchor_bottom = 0.9907408
+offset_left = -157.66669
+offset_top = -37.416668
+offset_right = -118.666626
+offset_bottom = -1.6018524
+texture_normal = ExtResource("6_4jk7j")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Hud/PopupManager/BottomBar/Abduct" to="Hud" method="_on_abduct_pressed"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://doaemvmp85wic"]
+
+[ext_resource type="Script" uid="uid://cyuwgh60rsil3" path="res://Levels/abduction.gd" id="1_4xjou"]
+[ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
+
+[node name="Abduction" type="Node2D" unique_id=1917941894]
+script = ExtResource("1_4xjou")
+
+[node name="StatusBar" type="ColorRect" parent="." unique_id=1381740684]
+offset_right = 640.0
+offset_bottom = 67.0
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="Timer" type="Control" parent="StatusBar" unique_id=901170658]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_djug4")
+
+[node name="label" type="RichTextLabel" parent="StatusBar/Timer" unique_id=1656245744]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -32.5
+offset_right = 56.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1

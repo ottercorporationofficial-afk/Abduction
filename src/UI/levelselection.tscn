@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dgrlvfj02xjsj" path="res://src/UI/levelselection.gd" id="1_8l6gd"]
 
 [node name="LevelSelector" type="VBoxContainer" unique_id=2011978141]
+self_modulate = Color(0.14509805, 0.14509805, 0.14509805, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,6 +23,7 @@ metadata/_custom_type_script = "uid://rynqn2dflwas"
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=244721686]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1014946563]
 layout_mode = 2

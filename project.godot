@@ -22,6 +22,7 @@ LevelStorage="*uid://dkvsmhjyny7ng"
 GameState="*uid://bfytwu32vnaao"
 Globals="*uid://fj5sy46tagfh"
 InputBlocker="*uid://db3bgpy5ojl6s"
+SceneManager="*uid://bhvgjat87gboa"
 
 [display]
 
@@ -40,6 +41,7 @@ folder_colors={
 "res://Art/": "red",
 "res://Data/": "purple",
 "res://Entities/": "green",
+"res://Levels/": "orange",
 "res://src/": "blue"
 }
 

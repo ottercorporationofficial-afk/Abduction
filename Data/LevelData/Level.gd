@@ -6,6 +6,7 @@ var name: String
 var texture: Texture2D
 var cost: int
 
+
 func _init(data: Dictionary = {}) -> void:
 	if data.is_empty(): return
 	id = data.id 

@@ -4,4 +4,4 @@ var unlocked_levels : int
 
 
 func _ready() -> void:
-	unlocked_levels = 1 
+	unlocked_levels = 2

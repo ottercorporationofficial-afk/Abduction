@@ -16,7 +16,8 @@ func _ready() -> void:
 		
 const LEVEL_BUTTON_SCENE = preload("res://src/UI/level_button.tscn")
 
+
 func _add_level(level):
 	var level_button = LEVEL_BUTTON_SCENE.instantiate()
-	level_button.setup(level)
 	grid.add_child(level_button)
+	level_button.setup(level)

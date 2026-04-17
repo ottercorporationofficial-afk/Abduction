@@ -3,31 +3,22 @@
 [ext_resource type="Script" uid="uid://4akyte21j580" path="res://src/main.gd" id="1_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="1_eewff"]
 [ext_resource type="PackedScene" uid="uid://bc0e58r0jgmo8" path="res://src/UI/hud.tscn" id="3_5q4o7"]
-[ext_resource type="PackedScene" uid="uid://l711wtrb1h81" path="res://src/UI/levelselection.tscn" id="4_3cfgd"]
+[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/UI/popupmanager.gd" id="4_3cfgd"]
 
 [node name="Main" type="Node2D" unique_id=1237780417]
 script = ExtResource("1_5q4o7")
 
 [node name="Human" parent="." unique_id=75959660 instance=ExtResource("1_eewff")]
-position = Vector2(949, 545)
+position = Vector2(163, 160)
 
 [node name="HUD" parent="." unique_id=673640033 instance=ExtResource("3_5q4o7")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=465916995]
-position = Vector2(960, 540)
+position = Vector2(321, 180)
 
-[node name="LevelSelector" parent="." unique_id=2011978141 instance=ExtResource("4_3cfgd")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 548.0
-offset_top = 220.0
-offset_right = 998.0
-offset_bottom = 527.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="PopupManager" type="Control" parent="." unique_id=380599977]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 638.0
+offset_bottom = 360.0
+script = ExtResource("4_3cfgd")

@@ -5,6 +5,11 @@ var data: Array[Level] = [
 		"id": "forest",
 		"name": "Forest",
 		"cost": 0
+	}),
+	Level.new({
+		"id": "desert",
+		"name": "desert",
+		"cost": 100
 	})
 ]
 

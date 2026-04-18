@@ -3,12 +3,13 @@ extends Control
 @onready var label: RichTextLabel = $label
 
 var time_left: float = 60.0 # starting time
-var running: bool = true 
+var running: bool = false 
 
 signal finished
 
 
 func _process(delta):
+	label.text = "Time Left: " + format_time(time_left)
 	if not running:
 		return
 	

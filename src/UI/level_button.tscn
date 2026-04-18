@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtj5tonr5vcn6"]
 
 [ext_resource type="Script" uid="uid://nkmcwf0di0xe" path="res://src/UI/level_button.gd" id="1_8mgw4"]
-[ext_resource type="Texture2D" uid="uid://bnb5hvhbvgxsl" path="res://Art/Levels/forest.png" id="1_w8va6"]
+[ext_resource type="Texture2D" uid="uid://bnb5hvhbvgxsl" path="res://Art/Levels/Icons/forest.png" id="1_w8va6"]
 
 [node name="LevelButton" type="PanelContainer" unique_id=2114289213]
 custom_minimum_size = Vector2(69, 69)

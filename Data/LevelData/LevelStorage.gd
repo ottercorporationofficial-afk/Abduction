@@ -4,12 +4,14 @@ var data: Array[Level] = [
 	Level.new({
 		"id": "forest",
 		"name": "Forest",
-		"cost": 0
+		"cost": 0,
+		"grid_size": Vector2i(20, 10),
 	}),
 	Level.new({
 		"id": "desert",
 		"name": "Desert",
-		"cost": 100
+		"cost": 100,
+		"grid_size": Vector2i(5, 5),
 	})
 ]
 

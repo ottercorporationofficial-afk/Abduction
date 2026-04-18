@@ -118,4 +118,7 @@ offset_bottom = -1.6018524
 texture_normal = ExtResource("6_4jk7j")
 metadata/_edit_use_anchors_ = true
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2062415228]
+position = Vector2(320, 180)
+
 [connection signal="pressed" from="Hud/PopupManager/BottomBar/Abduct" to="Hud" method="_on_abduct_pressed"]

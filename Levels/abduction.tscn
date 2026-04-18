@@ -2,16 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cyuwgh60rsil3" path="res://Levels/abduction.gd" id="1_4xjou"]
 [ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
+[ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="3_tlovu"]
 
 [node name="Abduction" type="Node2D" unique_id=1917941894]
 script = ExtResource("1_4xjou")
 
-[node name="StatusBar" type="ColorRect" parent="." unique_id=1381740684]
+[node name="Grid" type="Node2D" parent="." unique_id=409136658]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1739050206]
+
+[node name="StatusBar" type="ColorRect" parent="CanvasLayer" unique_id=1381740684]
 offset_right = 640.0
 offset_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.13682577, 0.13682574, 0.13682571, 1)
 
-[node name="Timer" type="Control" parent="StatusBar" unique_id=901170658]
+[node name="Timer" type="Control" parent="CanvasLayer/StatusBar" unique_id=901170658]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_djug4")
 
-[node name="label" type="RichTextLabel" parent="StatusBar/Timer" unique_id=1656245744]
+[node name="label" type="RichTextLabel" parent="CanvasLayer/StatusBar/Timer" unique_id=1656245744]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,3 +47,10 @@ offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
+position = Vector2(320, 182)
+zoom = Vector2(0.35, 0.35)
+
+[node name="Human" parent="." unique_id=75959660 instance=ExtResource("3_tlovu")]
+position = Vector2(312, 187)

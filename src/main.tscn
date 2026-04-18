@@ -5,7 +5,4 @@
 [node name="Main" type="Node2D" unique_id=1237780417]
 script = ExtResource("1_5q4o7")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=465916995]
-position = Vector2(321, 180)
-
 [node name="SceneHolder" type="Node2D" parent="." unique_id=170321782]

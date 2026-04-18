@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyuwgh60rsil3" path="res://Levels/abduction.gd" id="1_4xjou"]
 [ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
-[ext_resource type="PackedScene" uid="uid://ga6sxr7qdr31" path="res://Entities/human.tscn" id="3_tlovu"]
+[ext_resource type="Texture2D" uid="uid://ui38envdsjl8" path="res://Art/Guy.png" id="3_gpim5"]
 
 [node name="Abduction" type="Node2D" unique_id=1917941894]
 script = ExtResource("1_4xjou")
@@ -46,11 +46,37 @@ offset_right = 56.0
 offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "Timer
+99:99"
 horizontal_alignment = 1
+
+[node name="BeingsCaptured" type="Control" parent="CanvasLayer/StatusBar" unique_id=226723475]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/StatusBar/BeingsCaptured" unique_id=647847547]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 53.0
+offset_bottom = 52.0
+texture = ExtResource("3_gpim5")
+
+[node name="BeingsCaptured" type="RichTextLabel" parent="CanvasLayer/StatusBar/BeingsCaptured" unique_id=248862509]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 13.0
+offset_right = 95.0
+offset_bottom = 53.0
+theme_override_font_sizes/normal_font_size = 25
+text = "0/5"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
 position = Vector2(320, 182)
 zoom = Vector2(0.35, 0.35)
-
-[node name="Human" parent="." unique_id=75959660 instance=ExtResource("3_tlovu")]
-position = Vector2(312, 187)

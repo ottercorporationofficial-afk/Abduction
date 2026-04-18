@@ -23,6 +23,7 @@ GameState="*uid://bfytwu32vnaao"
 Globals="*uid://fj5sy46tagfh"
 InputBlocker="*uid://db3bgpy5ojl6s"
 SceneManager="*uid://bhvgjat87gboa"
+BeingData="*uid://vbpg8uad7xa7"
 
 [display]
 

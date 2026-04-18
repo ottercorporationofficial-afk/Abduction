@@ -27,7 +27,7 @@ func add_popup(popup) -> void:
 	move_child(popup, get_child_count() - 1)   # top	
 	
 	
-	InputBlocker.lock(popup)
+	#InputBlocker.lock(popup)
 	
 	darken.show()
 	
@@ -43,7 +43,7 @@ func remove_popup(popup: Control) -> void:
 	if popup.get_parent() == self:
 		remove_child(popup)
 
-	InputBlocker.unlock(popup)
+	#InputBlocker.unlock(popup)
 
 	if stack.is_empty():
 		blocker.hide()

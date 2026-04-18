@@ -1,8 +1,19 @@
 class_name abduction_scene
 extends Node2D
 
+
+## Information Setup 
+@onready var beings_captured: RichTextLabel = $CanvasLayer/StatusBar/BeingsCaptured/BeingsCaptured
+
+
+## Tile/map setup
 @onready var tile_scene = preload("uid://bi823t1sdslcb")
 @onready var grid: Node2D = $Grid
+
+## Level Information 
+var being_amount : int 
+var beings : Array
+
 
 var level_data : Level
 var tiles = []
@@ -12,6 +23,8 @@ var tile_size = Vector2(32, 32)
 
 func setup(level):
 	level_data = level 
+	being_amount = level_data.being_amount
+	beings = level_data.beings
 	
 	grid_size = level_data.grid_size
 
@@ -30,3 +43,34 @@ func setup(level):
 	var grid_pixel_size = Vector2(grid_size) * tile_size
 
 	grid.position = (screen_size - grid_pixel_size) / 2
+	
+	beings_captured.text = "0/" + str(being_amount)
+	
+	spawn_beings()  
+	
+func spawn_beings():
+	for i in range(being_amount):
+		
+		# pick a random type from allowed pool
+		var id = beings.pick_random()
+		
+		var being_data = BeingData.get_being(id)
+		
+		if being_data == null:
+			push_error("Invalid being id: " + str(id))
+			continue
+		
+		var being = being_data.scene.instantiate()
+		
+		# optional setup
+		if being.has_method("setup"):
+			being.setup(being_data)
+		
+		# random tile
+		var x = randi() % grid_size.x 
+		var y = randi() % grid_size.y
+		
+		being.position = Vector2(x * tile_size.x, y * tile_size.y)
+		
+		grid.add_child(being)
+ 

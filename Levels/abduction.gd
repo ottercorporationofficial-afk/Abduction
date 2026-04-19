@@ -33,6 +33,7 @@ func setup(level):
 		
 		for y in range(grid_size.y):
 			var tile = tile_scene.instantiate()
+			tile.tile = level_data.tile
 			
 			tile.position = Vector2(tile_size.x * x, tile_size.y * y)
 			

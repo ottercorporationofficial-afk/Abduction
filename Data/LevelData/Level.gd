@@ -6,6 +6,7 @@ var name: String
 var texture: Texture2D
 var cost: int
 var grid_size: Vector2i 
+var tile : Texture2D
 
 
 ###
@@ -18,6 +19,7 @@ func _init(data: Dictionary = {}) -> void:
 	id = data.id 
 	name = data.name 
 	texture = load("res://Art/Levels/Icons/%s.png" % id)
+	tile = data.tile 
 	cost = data.cost
 	being_amount = data.being_amount 
 	beings = data.beings 

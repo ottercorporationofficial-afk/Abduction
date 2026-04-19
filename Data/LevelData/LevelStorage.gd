@@ -1,5 +1,8 @@
 extends Node
 
+const SANDTILE = preload("uid://csp0gsxvggotc")
+const FOREST_TILE = preload("uid://c5mpkp0ei62jx")
+
 var data: Array[Level] = [
 	Level.new({
 		"id": "forest",
@@ -7,15 +10,17 @@ var data: Array[Level] = [
 		"cost": 0,
 		"grid_size": Vector2i(20, 10),
 		"beings" : ["Human"],
-		"being_amount" : 2
+		"being_amount" : 2,
+		"tile": FOREST_TILE,
 	}),
 	Level.new({
 		"id": "desert",
 		"name": "Desert",
 		"cost": 100,
-		"grid_size": Vector2i(5, 5),
+		"grid_size": Vector2i(20, 15),
 		"beings" : ["Human"],
-		"being_amount" : 2
+		"being_amount" : 2,
+		"tile": SANDTILE
 	})
 ]
 

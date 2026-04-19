@@ -5,6 +5,9 @@
 [ext_resource type="Shader" uid="uid://c8njvsu1fwq4i" path="res://Entities/HitFlash.gdshader" id="1_ljsf0"]
 [ext_resource type="Texture2D" uid="uid://cq6of6tlep4gc" path="res://Art/male_hero-walk.png" id="2_f3uon"]
 [ext_resource type="AudioStream" uid="uid://77oo1tqltqi3" path="res://Entities/hit.wav" id="2_r221b"]
+[ext_resource type="Texture2D" uid="uid://blfwjhpux2shj" path="res://Art/ProgressBarunder.png" id="6_04k85"]
+[ext_resource type="Texture2D" uid="uid://umgwbp84lv45" path="res://Art/ProgressBarovertest.png" id="7_04k85"]
+[ext_resource type="Script" uid="uid://cfi2pq8dqy0fy" path="res://Entities/health.gd" id="8_vlmkc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljsf0"]
 shader = ExtResource("1_ljsf0")
@@ -201,6 +204,18 @@ shape = SubResource("CapsuleShape2D_0n6mi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=839326471]
 shape = SubResource("CircleShape2D_kodwx")
+
+[node name="Health" type="TextureProgressBar" parent="." unique_id=670175701 node_paths=PackedStringArray("entity")]
+offset_left = -14.0
+offset_top = -26.0
+offset_right = 14.0
+offset_bottom = -22.0
+max_value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_04k85")
+texture_progress = ExtResource("7_04k85")
+script = ExtResource("8_vlmkc")
+entity = NodePath("..")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]

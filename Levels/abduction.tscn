@@ -79,7 +79,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
-position = Vector2(320, 182)
-zoom = Vector2(0.35, 0.35)
+position = Vector2(320, 151)
+zoom = Vector2(0.7, 0.7)
 
 [node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]

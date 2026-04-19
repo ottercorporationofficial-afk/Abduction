@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyuwgh60rsil3" path="res://Levels/abduction.gd" id="1_4xjou"]
 [ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
 [ext_resource type="Texture2D" uid="uid://ui38envdsjl8" path="res://Art/Guy.png" id="3_gpim5"]
+[ext_resource type="PackedScene" uid="uid://c3hvqx4a3lsxc" path="res://src/Crosshair/cross_hair.tscn" id="4_gpim5"]
 
 [node name="Abduction" type="Node2D" unique_id=1917941894]
 script = ExtResource("1_4xjou")
@@ -80,3 +81,5 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
 position = Vector2(320, 182)
 zoom = Vector2(0.35, 0.35)
+
+[node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]

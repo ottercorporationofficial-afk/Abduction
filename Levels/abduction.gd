@@ -21,6 +21,9 @@ var tiles = []
 var grid_size = Vector2i(0, 0)
 var tile_size = Vector2(32, 32)
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func setup(level):
 	level_data = level 
 	being_amount = level_data.being_amount

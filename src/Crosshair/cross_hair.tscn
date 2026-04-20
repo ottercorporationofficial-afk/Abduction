@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bfg3hygwbby48" path="res://src/Crosshair/cross_hair.gd" id="1_wtftl"]
 [ext_resource type="Texture2D" uid="uid://bilhv31h6ifl7" path="res://Art/Levels/CrossHairattempt.png" id="2_ei8ea"]
+[ext_resource type="Texture2D" uid="uid://cr387kd3ovln0" path="res://Art/BeamCrossHair.png" id="3_mq01j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gx1"]
 
 [node name="CrossHair" type="Node2D" unique_id=138381416]
 script = ExtResource("1_wtftl")
+textures = Array[Texture2D]([ExtResource("2_ei8ea"), ExtResource("3_mq01j")])
 
 [node name="Crosshair" type="Sprite2D" parent="." unique_id=816940373]
 texture_filter = 3

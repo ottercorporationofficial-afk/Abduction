@@ -100,6 +100,8 @@ func set_direction(new_dir: Vector2):
 func take_damage(amount):
 	health -= amount
 	health_changed.emit(health)
+	hit.play()
+	
 	if health <= 0:
 		die()
 		

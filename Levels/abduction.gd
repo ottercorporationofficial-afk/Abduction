@@ -27,11 +27,11 @@ var current_index := 0
 @onready var selected_weapon: RichTextLabel = $CanvasLayer/StatusBar/SelectedWeapon
 
 
-@onready var beam_cross_hair: Node2D = $BeamCrossHair
-@onready var gun_cross_hair: Node2D = $GunCrossHair
+@onready var cross_hair: Node2D = $CrossHair
+
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_update_weapon()
 
 func _input(event: InputEvent) -> void:
@@ -41,7 +41,6 @@ func _input(event: InputEvent) -> void:
 
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			_select_previous()
-
 
 func _select_next():
 	current_index = (current_index + 1) % weapons.size()
@@ -60,11 +59,9 @@ func _update_weapon():
 	Globals.flash_text(selected_weapon,1)
 	
 	if weapon == "gun":
-		beam_cross_hair.visible = false 
-		gun_cross_hair.visible = true
+		cross_hair.change_texture(cross_hair.textures[0])
 	else:
-		beam_cross_hair.visible = true 
-		gun_cross_hair.visible = false
+		cross_hair.change_texture(cross_hair.textures[1])
  	
 func setup(level):
 	level_data = level 
@@ -119,4 +116,9 @@ func spawn_beings():
 		being.position = Vector2(x * tile_size.x, y * tile_size.y)
 		
 		grid.add_child(being)
+		
+		
+		
+ 
+
  

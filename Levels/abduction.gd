@@ -24,13 +24,15 @@ var tile_size = Vector2(32, 32)
 var weapons := ["gun", "tractor_beam"]
 var current_index := 0
 
+@onready var selected_weapon: RichTextLabel = $CanvasLayer/StatusBar/SelectedWeapon
+
+
 @onready var beam_cross_hair: Node2D = $BeamCrossHair
 @onready var gun_cross_hair: Node2D = $GunCrossHair
 
 func _ready() -> void:
-	print(beam_cross_hair)
-	print(gun_cross_hair)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	_update_weapon()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -54,6 +56,9 @@ func _select_previous():
 func _update_weapon():
 	var weapon = weapons[current_index]
 	print("Selected:", weapon)
+	selected_weapon.text = weapon 
+	Globals.flash_text(selected_weapon,1)
+	
 	if weapon == "gun":
 		beam_cross_hair.visible = false 
 		gun_cross_hair.visible = true

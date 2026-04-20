@@ -98,7 +98,6 @@ offset_top = 73.0
 offset_right = 77.0
 offset_bottom = 113.0
 grow_horizontal = 2
-text = "Weapon"
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]

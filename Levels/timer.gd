@@ -1,9 +1,11 @@
 extends Control
 
 @onready var label: RichTextLabel = $label
+@onready var popup_manager: popup_manager = $"../../../popup_manager"
+const LEVEL_COMPLETE_POPUP = preload("uid://bsy763ic4lp8d")
 
-var time_left: float = 60.0 # starting time
-var running: bool = false 
+var time_left: float = 5.0 # starting time
+var running: bool = true 
 
 signal finished
 
@@ -21,6 +23,10 @@ func _process(delta):
 		running = false
 		emit_signal("finished")
 		print("TIME UP")
+		var popup = LEVEL_COMPLETE_POPUP.instantiate()
+	
+		Globals.popups.add_popup(popup)
+
 
 
 func format_time(t: float) -> String:

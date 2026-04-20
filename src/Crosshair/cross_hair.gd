@@ -3,6 +3,7 @@ extends Node2D
 @export var textures : Array[Texture2D]
 @onready var crosshair: Sprite2D = $Crosshair
 
+@onready var camera_2d: Camera2D = $"../Camera2D"
 
  
 func _process(delta: float) -> void:
@@ -33,3 +34,6 @@ func shoot():
 		
 		if collider.has_method("take_damage"):
 			collider.take_damage(1)
+			camera_2d.shake(2.0)
+
+	

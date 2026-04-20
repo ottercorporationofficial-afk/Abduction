@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
 [ext_resource type="Texture2D" uid="uid://ui38envdsjl8" path="res://Art/Guy.png" id="3_gpim5"]
 [ext_resource type="PackedScene" uid="uid://c3hvqx4a3lsxc" path="res://src/Crosshair/cross_hair.tscn" id="4_gpim5"]
+[ext_resource type="Script" uid="uid://bi44dgxvlg51o" path="res://Levels/camera_2d.gd" id="4_u04hb"]
 [ext_resource type="Shader" uid="uid://cxub8wgsep8a3" path="res://Levels/BeamShader.gdshader" id="5_b22j6"]
 [ext_resource type="Script" uid="uid://djj8ig5kpm6kl" path="res://Levels/Beam.gd" id="6_wda3c"]
+[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/Popups/popupmanager.gd" id="8_5lgol"]
+[ext_resource type="Script" uid="uid://crt1s8huhkshj" path="res://src/blocker.gd" id="9_lhs0l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wda3c"]
 shader = ExtResource("5_b22j6")
@@ -99,9 +102,44 @@ offset_bottom = 113.0
 grow_horizontal = 2
 horizontal_alignment = 1
 
+[node name="PopupManager" type="Control" parent="CanvasLayer" unique_id=497207767]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("8_5lgol")
+
+[node name="Blocker" type="Control" parent="CanvasLayer/PopupManager" unique_id=529440858]
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_lhs0l")
+metadata/_edit_lock_ = true
+
+[node name="Darken" type="ColorRect" parent="CanvasLayer/PopupManager" unique_id=448113241]
+visible = false
+modulate = Color(0, 0, 0, 0.2784314)
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
 position = Vector2(320, 151)
 zoom = Vector2(0.7, 0.7)
+script = ExtResource("4_u04hb")
 
 [node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]
 

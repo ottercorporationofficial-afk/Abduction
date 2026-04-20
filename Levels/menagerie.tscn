@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvwm15ty43e7m"]
 
 [ext_resource type="Script" uid="uid://bc2yfcqawt5yg" path="res://src/UI/hud.gd" id="1_s5aol"]
-[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/UI/popupmanager.gd" id="2_44ltq"]
+[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/Popups/popupmanager.gd" id="2_44ltq"]
 [ext_resource type="Script" uid="uid://crt1s8huhkshj" path="res://src/blocker.gd" id="3_ywpwj"]
 [ext_resource type="Texture2D" uid="uid://to5pd36xogsb" path="res://Art/Research.png" id="4_3piki"]
 [ext_resource type="Texture2D" uid="uid://dx1q78bf5lh2x" path="res://Art/AbductButton.png" id="5_sf3sn"]
@@ -52,7 +52,6 @@ offset_left = 0.99375
 offset_right = 0.9937744
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Money" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=2101065542]
 layout_mode = 1
@@ -67,7 +66,6 @@ theme_override_colors/font_color = Color(0.29937053, 0.74571294, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "$14,000"
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Research" type="Label" parent="Hud/PopupManager/BottomBar" unique_id=473515085]
 layout_mode = 1
@@ -82,7 +80,6 @@ theme_override_colors/font_color = Color(0.14203563, 0.6795579, 0.9999998, 1)
 theme_override_font_sizes/font_size = 20
 text = "47"
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Research2" type="Sprite2D" parent="Hud/PopupManager/BottomBar" unique_id=68116968]
 modulate = Color(0, 1, 1, 1)
@@ -102,7 +99,6 @@ offset_top = -37.416668
 offset_right = 1.333374
 offset_bottom = -1.6018524
 texture_normal = ExtResource("5_sf3sn")
-metadata/_edit_use_anchors_ = true
 
 [node name="Upgrade" type="TextureButton" parent="Hud/PopupManager/BottomBar" unique_id=739499058]
 layout_mode = 1
@@ -116,7 +112,6 @@ offset_top = -37.416668
 offset_right = -118.666626
 offset_bottom = -1.6018524
 texture_normal = ExtResource("6_4jk7j")
-metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2062415228]
 position = Vector2(320, 180)

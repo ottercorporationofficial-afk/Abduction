@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l711wtrb1h81"]
 
-[ext_resource type="Script" uid="uid://dgrlvfj02xjsj" path="res://src/UI/levelselection.gd" id="1_8l6gd"]
+[ext_resource type="Script" uid="uid://dgrlvfj02xjsj" path="res://src/Popups/levelselection.gd" id="1_aw2mp"]
 
 [node name="LevelSelector" type="VBoxContainer" unique_id=2011978141]
 self_modulate = Color(0.14509805, 0.14509805, 0.14509805, 1)
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_8l6gd")
+script = ExtResource("1_aw2mp")
 metadata/_custom_type_script = "uid://rynqn2dflwas"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=244721686]

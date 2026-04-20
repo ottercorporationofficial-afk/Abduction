@@ -13,7 +13,7 @@ config_version=5
 config/name="Abduction"
 run/main_scene="uid://cfms84dt6c1pc"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cc2062fufsvb"
 
 [autoload]
 

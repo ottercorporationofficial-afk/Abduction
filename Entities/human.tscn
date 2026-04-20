@@ -3,10 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://p4vemv77xaxb" path="res://Art/male_hero-idle.png" id="1_86l0o"]
 [ext_resource type="Script" uid="uid://dtcxflqeypscr" path="res://Entities/human.gd" id="1_kodwx"]
 [ext_resource type="Shader" uid="uid://c8njvsu1fwq4i" path="res://Entities/HitFlash.gdshader" id="1_ljsf0"]
+[ext_resource type="PackedScene" uid="uid://d1wwlw553ldw7" path="res://damage_number.tscn" id="2_awe3v"]
 [ext_resource type="Texture2D" uid="uid://cq6of6tlep4gc" path="res://Art/male_hero-walk.png" id="2_f3uon"]
 [ext_resource type="AudioStream" uid="uid://77oo1tqltqi3" path="res://Entities/hit.wav" id="2_r221b"]
+[ext_resource type="Texture2D" uid="uid://1im7gwsl7hy3" path="res://Art/male_hero-idle_turn.png" id="5_vlmkc"]
 [ext_resource type="Texture2D" uid="uid://blfwjhpux2shj" path="res://Art/ProgressBarunder.png" id="6_04k85"]
 [ext_resource type="Texture2D" uid="uid://umgwbp84lv45" path="res://Art/ProgressBarovertest.png" id="7_04k85"]
+[ext_resource type="Texture2D" uid="uid://bclrf31g7vms7" path="res://Art/male_hero-walk_turn.png" id="7_awe3v"]
 [ext_resource type="Script" uid="uid://cfi2pq8dqy0fy" path="res://Entities/health.gd" id="8_vlmkc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljsf0"]
@@ -54,6 +57,22 @@ region = Rect2(1024, 0, 128, 128)
 atlas = ExtResource("1_86l0o")
 region = Rect2(1152, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4iob"]
+atlas = ExtResource("5_vlmkc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eppee"]
+atlas = ExtResource("5_vlmkc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb7u5"]
+atlas = ExtResource("5_vlmkc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dew8m"]
+atlas = ExtResource("5_vlmkc")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucs3u"]
 atlas = ExtResource("2_f3uon")
 region = Rect2(0, 0, 128, 128)
@@ -94,6 +113,22 @@ region = Rect2(1024, 0, 128, 128)
 atlas = ExtResource("2_f3uon")
 region = Rect2(1152, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbrov"]
+atlas = ExtResource("7_awe3v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2hm0"]
+atlas = ExtResource("7_awe3v")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v72ts"]
+atlas = ExtResource("7_awe3v")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yv15"]
+atlas = ExtResource("7_awe3v")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_66ll3"]
 animations = [{
 "frames": [{
@@ -131,7 +166,19 @@ animations = [{
 "name": &"idle",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4iob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eppee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb7u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dew8m")
+}],
 "loop": true,
 "name": &"idle_turn",
 "speed": 5.0
@@ -171,7 +218,19 @@ animations = [{
 "name": &"walk",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbrov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2hm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v72ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yv15")
+}],
 "loop": true,
 "name": &"walk_turn",
 "speed": 5.0
@@ -186,6 +245,7 @@ radius = 21.095022
 
 [node name="Human" type="CharacterBody2D" unique_id=75959660]
 script = ExtResource("1_kodwx")
+damage_number_scene = ExtResource("2_awe3v")
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="." unique_id=263920440]
 stream = ExtResource("2_r221b")
@@ -193,9 +253,8 @@ stream = ExtResource("2_r221b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=669052450]
 material = SubResource("ShaderMaterial_ljsf0")
 sprite_frames = SubResource("SpriteFrames_66ll3")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.5309742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585949678]
 shape = SubResource("CapsuleShape2D_0n6mi")

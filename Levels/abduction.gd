@@ -21,9 +21,46 @@ var tiles = []
 var grid_size = Vector2i(0, 0)
 var tile_size = Vector2(32, 32)
 
+var weapons := ["gun", "tractor_beam"]
+var current_index := 0
+
+@onready var beam_cross_hair: Node2D = $BeamCrossHair
+@onready var gun_cross_hair: Node2D = $GunCrossHair
+
 func _ready() -> void:
+	print(beam_cross_hair)
+	print(gun_cross_hair)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_select_next()
+
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_select_previous()
+
+
+func _select_next():
+	current_index = (current_index + 1) % weapons.size()
+	_update_weapon()
+
+
+func _select_previous():
+	current_index = (current_index - 1 + weapons.size()) % weapons.size()
+	_update_weapon()
+
+
+func _update_weapon():
+	var weapon = weapons[current_index]
+	print("Selected:", weapon)
+	if weapon == "gun":
+		beam_cross_hair.visible = false 
+		gun_cross_hair.visible = true
+	else:
+		beam_cross_hair.visible = true 
+		gun_cross_hair.visible = false
+ 	
 func setup(level):
 	level_data = level 
 	being_amount = level_data.being_amount

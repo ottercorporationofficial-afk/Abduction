@@ -1,7 +1,24 @@
 extends CharacterBody2D
 
+@export var damage_number_scene: PackedScene
+
+
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit: AudioStreamPlayer2D = $Hit
+
+enum State { IDLE, WALK }
+
+var state = State.IDLE
+
+var speed := 25.0
+var direction := Vector2.ZERO
+var facing := Vector2.RIGHT
+
+var grid_size := Vector2i(20, 10)
+var tile_size := Vector2(32, 32)
+var map_size := Vector2(grid_size) * tile_size # grid_size * tile_ size
+
+
 
 var max_health : int
 var health : int 
@@ -16,28 +33,87 @@ func _ready() -> void:
 	## prevents hits from flashing on all humans
 	if animation.material:
 		animation.material = animation.material.duplicate()
+	_next_state()
+	
+## Random Walking
 
+func _process(delta):
+	match state:
+		State.WALK:
+			position += direction * speed * delta
+			_handle_bounds()
+	update_animation()
 
+func _handle_bounds():
+	if position.x <= 0 or position.x >= map_size.x:
+		direction.x *= -1
+	if position.y <= 0 or position.y >= map_size.y:
+		direction.y *= -1
+		
+	position = position.clamp(Vector2.ZERO,map_size)
 
+func _next_state():
+	if randf() < 0.5:
+		state = State.IDLE
+		direction = Vector2.ZERO
+		
+		var wait_time = randf_range(0.5, 2.5)
+		await get_tree().create_timer(wait_time).timeout
+		
+		_next_state()
+	else:
+		state = State.WALK
+		
+		set_direction(Vector2(
+			randf_range(-1,1),
+			randf_range(-1,1)
+		))
+		
+		var walk_time = randf_range(1.0, 4.0)
+		await get_tree().create_timer(walk_time).timeout
+		
+		_next_state()
 
-func _on_click_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		flash_hit()
-		TweenFX.shake(self)
-		take_damage(1)
+func is_turning(new_dir: Vector2) -> bool:
+	if new_dir == Vector2.ZERO:
+		return false
+	return facing.dot(new_dir) < 0.3
 
-var  x = 0 
+func update_animation():
+	if direction.length() < 0.1 or state == State.IDLE:
+		if animation.animation != "idle":
+			animation.play("idle")
+	else:
+		if animation.animation != "walk":
+			animation.play("walk")
+			
+func set_direction(new_dir: Vector2):
+	if new_dir == Vector2.ZERO:
+		return
+	
+	new_dir = new_dir.normalized()
+	
+	direction = new_dir
+	facing = new_dir
+	animation.flip_h = facing.x < 0
 
 func take_damage(amount):
-	x += 1 
-	print("hit" + str(x) + "times" )
 	health -= amount
 	health_changed.emit(health)
 	if health <= 0:
 		die()
+		
+	var dmg = damage_number_scene.instantiate()
+	dmg.global_position = global_position
+	get_tree().current_scene.add_child(dmg)
+	dmg.setup(amount, false)
+
 
 func die():
-	TweenFX.fade_out(self)
+	pass
+	
+	
+	
 
 func flash_hit():
 	if animation.material == null:

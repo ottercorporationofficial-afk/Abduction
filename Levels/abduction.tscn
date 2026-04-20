@@ -4,6 +4,16 @@
 [ext_resource type="Script" uid="uid://dsk7gdn1wkx0r" path="res://Levels/timer.gd" id="2_djug4"]
 [ext_resource type="Texture2D" uid="uid://ui38envdsjl8" path="res://Art/Guy.png" id="3_gpim5"]
 [ext_resource type="PackedScene" uid="uid://c3hvqx4a3lsxc" path="res://src/Crosshair/cross_hair.tscn" id="4_gpim5"]
+[ext_resource type="Shader" uid="uid://cxub8wgsep8a3" path="res://Levels/BeamShader.gdshader" id="5_b22j6"]
+[ext_resource type="Texture2D" uid="uid://cr387kd3ovln0" path="res://Art/BeamCrossHair.png" id="5_u04hb"]
+[ext_resource type="Script" uid="uid://djj8ig5kpm6kl" path="res://Levels/Beam.gd" id="6_wda3c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wda3c"]
+shader = ExtResource("5_b22j6")
+shader_parameter/time_scale = 2.0
+shader_parameter/wave_strength = 0.02
+shader_parameter/beam_width = 0.455
+shader_parameter/beam_color = Color(0.6, 0.078431375, 0.8, 1)
 
 [node name="Abduction" type="Node2D" unique_id=1917941894]
 script = ExtResource("1_4xjou")
@@ -78,8 +88,36 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SelectedWeapon" type="RichTextLabel" parent="CanvasLayer/StatusBar" unique_id=1174840857]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_top = 73.0
+offset_right = 77.0
+offset_bottom = 113.0
+grow_horizontal = 2
+text = "Weapon"
+horizontal_alignment = 1
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1984243342]
 position = Vector2(320, 151)
 zoom = Vector2(0.7, 0.7)
 
-[node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]
+[node name="GunCrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]
+
+[node name="BeamCrossHair" parent="." unique_id=1948126069 instance=ExtResource("4_gpim5")]
+visible = false
+texture = ExtResource("5_u04hb")
+
+[node name="TestBeam" type="ColorRect" parent="." unique_id=1742406669]
+visible = false
+material = SubResource("ShaderMaterial_wda3c")
+offset_left = 301.95062
+offset_top = 236.0
+offset_right = 355.90125
+offset_bottom = 375.0
+rotation = 3.1415927
+mouse_filter = 1
+script = ExtResource("6_wda3c")

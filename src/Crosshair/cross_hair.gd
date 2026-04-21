@@ -36,4 +36,5 @@ func shoot():
 			collider.take_damage(1)
 			camera_2d.shake(2.0)
 
-	
+func abduct():
+	pass

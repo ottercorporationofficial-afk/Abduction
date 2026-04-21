@@ -27,7 +27,6 @@ func add_popup(popup) -> void:
 	move_child(popup, get_child_count() - 1)   # top	
 	
 	
-	#InputBlocker.lock(popup)
 	
 	darken.show()
 	

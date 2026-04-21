@@ -3,8 +3,17 @@
 [ext_resource type="Script" uid="uid://upo3xjy3lah4" path="res://src/Popups/LevelCompletePopup.gd" id="1_0fbet"]
 
 [node name="LevelComplete" type="VBoxContainer" unique_id=559171141]
-offset_right = 306.0
-offset_bottom = 195.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -97.5
+offset_right = 153.0
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0fbet")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=562507597]

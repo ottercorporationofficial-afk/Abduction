@@ -5,8 +5,11 @@ extends CharacterBody2D
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit: AudioStreamPlayer2D = $Hit
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 enum State { IDLE, WALK }
+
+var is_dead := false
 
 var state = State.IDLE
 
@@ -38,6 +41,9 @@ func _ready() -> void:
 ## Random Walking
 
 func _process(delta):
+	if is_dead:
+		return
+		
 	match state:
 		State.WALK:
 			position += direction * speed * delta
@@ -53,6 +59,9 @@ func _handle_bounds():
 	position = position.clamp(Vector2.ZERO,map_size)
 
 func _next_state():
+	if is_dead:
+		return
+	
 	if randf() < 0.5:
 		state = State.IDLE
 		direction = Vector2.ZERO
@@ -112,8 +121,15 @@ func take_damage(amount):
 
 
 func die():
-	pass
+	if is_dead:
+		return
+		
+	is_dead = true
 	
+	state = State.IDLE
+	direction = Vector2.ZERO
+	
+	animation_player.play("Downed")
 	
 	
 

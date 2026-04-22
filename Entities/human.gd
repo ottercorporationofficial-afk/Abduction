@@ -129,6 +129,7 @@ func die():
 	state = State.IDLE
 	direction = Vector2.ZERO
 	
+	animation.stop()
 	animation_player.play("Downed")
 	
 	

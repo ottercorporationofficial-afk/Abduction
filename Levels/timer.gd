@@ -5,7 +5,7 @@ extends Control
 const LEVEL_COMPLETE_POPUP = preload("uid://bsy763ic4lp8d")
 
 var time_left: float = 5.0 # starting time
-var running: bool = true 
+var running: bool = false 
 
 signal finished
 

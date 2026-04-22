@@ -5,14 +5,20 @@ extends Node2D
 
 @onready var camera_2d: Camera2D = $"../Camera2D"
 
+var current_weapon : String
+
  
 func _process(delta: float) -> void:
+	current_weapon  = "gun"
 	position = get_global_mouse_position()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.button_index == MOUSE_BUTTON_LEFT and current_weapon == "gun":
 			shoot()
+		elif event.button_index == MOUSE_BUTTON_LEFT and current_weapon == "tractor_beam":
+			abduct()
+			
 func change_texture(_texture : Texture2D):
 	crosshair.texture = _texture
 	

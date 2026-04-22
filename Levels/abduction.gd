@@ -62,7 +62,8 @@ func _update_weapon():
 		cross_hair.change_texture(cross_hair.textures[0])
 	else:
 		cross_hair.change_texture(cross_hair.textures[1])
- 	
+	cross_hair.current_weapon = weapon
+	
 func setup(level):
 	level_data = level 
 	being_amount = level_data.being_amount

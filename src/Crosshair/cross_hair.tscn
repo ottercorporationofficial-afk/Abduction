@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c3hvqx4a3lsxc"]
 
 [ext_resource type="Script" uid="uid://bfg3hygwbby48" path="res://src/Crosshair/cross_hair.gd" id="1_wtftl"]
-[ext_resource type="Texture2D" uid="uid://bilhv31h6ifl7" path="res://Art/Levels/CrossHairattempt.png" id="2_ei8ea"]
-[ext_resource type="Texture2D" uid="uid://cr387kd3ovln0" path="res://Art/BeamCrossHair.png" id="3_mq01j"]
+[ext_resource type="Texture2D" uid="uid://bilhv31h6ifl7" path="res://Art/CrossHair/gun.png" id="2_ei8ea"]
+[ext_resource type="Texture2D" uid="uid://cr387kd3ovln0" path="res://Art/CrossHair/tractor_beam.png" id="3_mq01j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gx1"]
 

@@ -21,6 +21,10 @@ var tiles = []
 var grid_size = Vector2i(0, 0)
 var tile_size = Vector2(32, 32)
 
+
+
+@onready var weapon_manager: weapons_manager = $WeaponManager
+
 var weapons := ["gun", "tractor_beam"]
 var current_index := 0
 
@@ -33,6 +37,8 @@ var current_index := 0
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_update_weapon()
+	weapon_manager.setup(WeaponStorage.data)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

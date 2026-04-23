@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cxub8wgsep8a3" path="res://Levels/BeamShader.gdshader" id="5_b22j6"]
 [ext_resource type="Script" uid="uid://djj8ig5kpm6kl" path="res://Levels/Beam.gd" id="6_wda3c"]
 [ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/Popups/popupmanager.gd" id="8_5lgol"]
+[ext_resource type="Script" uid="uid://bkh6quapeu1hm" path="res://Weapons/weapon_manager.gd" id="8_qj8jb"]
 [ext_resource type="Script" uid="uid://crt1s8huhkshj" path="res://src/blocker.gd" id="9_lhs0l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wda3c"]
@@ -142,6 +143,9 @@ zoom = Vector2(0.7, 0.7)
 script = ExtResource("4_u04hb")
 
 [node name="CrossHair" parent="." unique_id=138381416 instance=ExtResource("4_gpim5")]
+
+[node name="WeaponManager" type="Node2D" parent="." unique_id=1105181085]
+script = ExtResource("8_qj8jb")
 
 [node name="TestBeam" type="ColorRect" parent="." unique_id=1742406669]
 visible = false

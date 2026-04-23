@@ -16,7 +16,7 @@ func setup(level_data: Level):
 		push_error("Level data is null!")
 		return
 	level = level_data
-	level_image.texture = level.texture
+	level_image.texture = level.icon
 	label.text = level.name
 	
  

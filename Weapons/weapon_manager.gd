@@ -7,7 +7,8 @@ var current_index: int = 0
 
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var cross_hair: Node2D = $"../CrossHair"
- 
+@onready var selected_weapon: RichTextLabel = $"../CanvasLayer/StatusBar/SelectedWeapon"
+
 
 func setup(weapon_data: Array[Weapon]) -> void:
 	## Store Weapons
@@ -33,6 +34,12 @@ func _update_weapon():
 	
 	print("Equipped:", weapon.name)
 	
+	selected_weapon.text = weapon.name
+	TweenFX.pop_in(selected_weapon)
+	await get_tree().create_timer(1).timeout
+	TweenFX.pop_out(selected_weapon)
+	
+	
 	
 	
 func next_weapon():
@@ -47,6 +54,19 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			shoot()
 			camera_2d.shake(2.0)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_select_next()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_select_previous()
+
+func _select_next():
+	current_index = (current_index + 1) % weapons.size()
+	_update_weapon()
+
+
+func _select_previous():
+	current_index = (current_index - 1 + weapons.size()) % weapons.size()
+	_update_weapon()
 
 
 

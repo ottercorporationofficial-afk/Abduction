@@ -7,7 +7,7 @@ extends Node2D
 
 
 ## Tile/map setup
-@onready var tile_scene = preload("uid://bi823t1sdslcb")
+@onready var tile_scene = preload("uid://bi823t1sdslcb") ## default grass tile
 @onready var grid: Node2D = $Grid
 
 ## Level Information 
@@ -25,50 +25,11 @@ var tile_size = Vector2(32, 32)
 
 @onready var weapon_manager: weapons_manager = $WeaponManager
 
-var weapons := ["gun", "tractor_beam"]
-var current_index := 0
-
-@onready var selected_weapon: RichTextLabel = $CanvasLayer/StatusBar/SelectedWeapon
-
-
-@onready var cross_hair: Node2D = $CrossHair
-
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	_update_weapon()
 	weapon_manager.setup(WeaponStorage.data)
-	
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_select_next()
-
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_select_previous()
-
-func _select_next():
-	current_index = (current_index + 1) % weapons.size()
-	_update_weapon()
-
-
-func _select_previous():
-	current_index = (current_index - 1 + weapons.size()) % weapons.size()
-	_update_weapon()
-
-
-func _update_weapon():
-	var weapon = weapons[current_index]
-	print("Selected:", weapon)
-	selected_weapon.text = weapon 
-	Globals.flash_text(selected_weapon,1)
-	
-	if weapon == "gun":
-		cross_hair.change_texture(cross_hair.textures[0])
-	else:
-		cross_hair.change_texture(cross_hair.textures[1])
-	cross_hair.current_weapon = weapon
 	
 func setup(level):
 	level_data = level 

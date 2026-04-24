@@ -132,7 +132,8 @@ func die():
 	animation.stop()
 	animation_player.play("Downed")
 	
-	
+func abduct():
+	TweenFX.pop_out(self)
 
 func flash_hit():
 	if animation.material == null:

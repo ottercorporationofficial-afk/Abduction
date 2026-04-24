@@ -1,3 +1,83 @@
 [gd_scene format=3 uid="uid://chtpxlthhu3q"]
 
+[ext_resource type="PackedScene" uid="uid://d1susu86yfia6" path="res://src/UI/base_button.tscn" id="1_guuao"]
+
 [node name="MainMenu" type="Node2D" unique_id=1320947071]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=380576082]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1716259490]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="NewGame" parent="CanvasLayer/VBoxContainer" unique_id=953195167 instance=ExtResource("1_guuao")]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+
+[node name="RichTextLabel" parent="CanvasLayer/VBoxContainer/NewGame/Visuals/MarginContainer" parent_id_path=PackedInt32Array(953195167, 505069131) index="0" unique_id=1990646623]
+text = "New Game"
+
+[node name="Resume" parent="CanvasLayer/VBoxContainer" unique_id=389234210 instance=ExtResource("1_guuao")]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(100, 21)
+layout_mode = 2
+
+[node name="ColorRect" parent="CanvasLayer/VBoxContainer/Resume/Visuals" parent_id_path=PackedInt32Array(389234210, 500250331) index="0" unique_id=1132997193]
+color = Color(0.8644052, 2.6760697e-05, 0.61550117, 1)
+
+[node name="MarginContainer" parent="CanvasLayer/VBoxContainer/Resume/Visuals" parent_id_path=PackedInt32Array(389234210, 500250331) index="1" unique_id=505069131]
+offset_top = -1.0
+offset_bottom = 1.0
+
+[node name="RichTextLabel" parent="CanvasLayer/VBoxContainer/Resume/Visuals/MarginContainer" index="0" unique_id=1990646623]
+text = "Resume"
+
+[node name="Options" parent="CanvasLayer/VBoxContainer" unique_id=1252188843 instance=ExtResource("1_guuao")]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(100, 21)
+layout_mode = 2
+
+[node name="ColorRect" parent="CanvasLayer/VBoxContainer/Options/Visuals" parent_id_path=PackedInt32Array(1252188843, 500250331) index="0" unique_id=1132997193]
+color = Color(0.08929456, 0.46004945, 0.9999998, 1)
+
+[node name="MarginContainer" parent="CanvasLayer/VBoxContainer/Options/Visuals" parent_id_path=PackedInt32Array(1252188843, 500250331) index="1" unique_id=505069131]
+offset_top = -1.0
+offset_bottom = 1.0
+
+[node name="RichTextLabel" parent="CanvasLayer/VBoxContainer/Options/Visuals/MarginContainer" index="0" unique_id=1990646623]
+text = "Options"
+
+[node name="Quit" parent="CanvasLayer/VBoxContainer" unique_id=2112305961 instance=ExtResource("1_guuao")]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(100, 21)
+layout_mode = 2
+
+[node name="ColorRect" parent="CanvasLayer/VBoxContainer/Quit/Visuals" parent_id_path=PackedInt32Array(2112305961, 500250331) index="0" unique_id=1132997193]
+color = Color(0.93089545, 0, 0.009617487, 1)
+
+[node name="MarginContainer" parent="CanvasLayer/VBoxContainer/Quit/Visuals" parent_id_path=PackedInt32Array(2112305961, 500250331) index="1" unique_id=505069131]
+offset_top = -1.0
+offset_bottom = 1.0
+
+[node name="RichTextLabel" parent="CanvasLayer/VBoxContainer/Quit/Visuals/MarginContainer" index="0" unique_id=1990646623]
+text = "Quit"
+
+[editable path="CanvasLayer/VBoxContainer/NewGame"]
+[editable path="CanvasLayer/VBoxContainer/Resume"]
+[editable path="CanvasLayer/VBoxContainer/Options"]
+[editable path="CanvasLayer/VBoxContainer/Quit"]

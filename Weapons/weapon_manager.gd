@@ -75,12 +75,9 @@ func shoot():
 	
 	var mouse_pos = get_global_mouse_position()
 	
-	match weapon.id:
-		"gun":
-			Weaponbehavior._shoot_gun(mouse_pos,weapon)
-		"tractor_beam":
-			Weaponbehavior._shoot_beam(weapon)
-
+	
+	Weaponbehavior._handle_weapon(mouse_pos,weapon)
+		
 func abduct():
 	pass
 	

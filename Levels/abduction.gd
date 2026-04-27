@@ -1,6 +1,11 @@
 class_name abduction_scene
 extends Node2D
 
+## Popups
+const LEVEL_COMPLETE_POPUP = preload("uid://bsy763ic4lp8d")
+@onready var popup_manager: popup_manager = $CanvasLayer/PopupManager
+
+
 
 ## Information Setup 
 @onready var beings_captured: RichTextLabel = $CanvasLayer/StatusBar/BeingsCaptured/BeingsCaptured
@@ -31,7 +36,6 @@ func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	weapon_manager.setup(WeaponStorage.data)
 	EventBus.abducted.connect(_on_being_abducted)
-
 	
 func setup(level):
 	level_data = level 
@@ -87,11 +91,27 @@ func spawn_beings():
 		
 		grid.add_child(being)
 		
+func check_victory() -> bool: 
+	if beings_abducted_amount >= being_amount:
+		return true
+	else:
+		return false
 		
+func end_round():
+	popup_manager.blocker.visible = true
+	
+	var popup = LEVEL_COMPLETE_POPUP.instantiate()
+	
+	popup_manager.add_popup(popup)
 		
 func _on_being_abducted(being_data: Being):
 	beings_abducted_amount += 1 
 	beings_captured.text = str(beings_abducted_amount) + "/" + str(being_amount)
+	
+		
+	if check_victory():
+		end_round()
+		
 	
 
  

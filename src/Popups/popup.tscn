@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbsgsceevu8ay"]
 
-[ext_resource type="Script" uid="uid://rynqn2dflwas" path="res://popup.gd" id="1_dscap"]
+[ext_resource type="Script" uid="uid://rynqn2dflwas" path="res://src/popup.gd" id="1_dscap"]
 
 [node name="Popup" type="VBoxContainer" unique_id=1305997310]
 offset_right = 68.0

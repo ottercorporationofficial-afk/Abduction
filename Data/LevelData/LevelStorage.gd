@@ -17,7 +17,7 @@ var data: Array[Level] = [
 		"id": "desert",
 		"name": "Desert",
 		"cost": 100,
-		"grid_size": Vector2i(20, 15),
+		"grid_size": Vector2i(22, 10),
 		"beings" : ["Human"],
 		"being_amount" : 2,
 		"tile": SANDTILE

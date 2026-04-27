@@ -56,7 +56,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			shoot()
-			camera_2d.shake(2.0)
+
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			_select_next()
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
@@ -78,8 +78,12 @@ func shoot():
 	
 	var mouse_pos = get_global_mouse_position()
 	
+	var did_hit =  Weaponbehavior._handle_weapon(mouse_pos,weapon)
 	
-	Weaponbehavior._handle_weapon(mouse_pos,weapon)
+	if weapon.id == "gun" and did_hit:
+		camera_2d.shake(2.0)	
+	
+	
 		
 
 	

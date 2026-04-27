@@ -135,10 +135,12 @@ func die():
 	
 	animation.stop()
 	animation_player.play("Downed")
+
+func is_alive() -> bool:
+	return not is_dead 
+
 	
 func abduct():
-	if !is_dead:
-		return
 	
 	TweenFX.pop_out(self)
 	

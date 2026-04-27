@@ -5,9 +5,9 @@ extends Node2D
 func _handle_weapon(origin: Vector2, weapon: Weapon):
 	match weapon.id:
 		"gun":
-			_shoot_gun(origin,weapon)
+			return _shoot_gun(origin,weapon)
 		"tractor_beam":
-			_shoot_beam(origin,weapon)
+			return _shoot_beam(origin,weapon)
 			
 			
 			
@@ -25,8 +25,14 @@ func _shoot_gun(origin: Vector2, weapon: Weapon):
 		var collider = hit.collider
 		
 		if collider.has_method("take_damage"):
-			collider.take_damage(weapon.damage)
 			
+			if collider.has_method("is_alive") and not collider.is_alive():
+				continue
+			
+			collider.take_damage(weapon.damage)
+			return true
+			
+	return false
 			
 func _shoot_beam(origin: Vector2,weapon : Weapon):
 	var space_state = get_world_2d().direct_space_state
@@ -43,4 +49,4 @@ func _shoot_beam(origin: Vector2,weapon : Weapon):
 		
 		if collider.has_method("abduct"):
 			collider.abduct()
-			
+	return false

@@ -78,7 +78,5 @@ func shoot():
 	
 	Weaponbehavior._handle_weapon(mouse_pos,weapon)
 		
-func abduct():
-	pass
-	
+
 	

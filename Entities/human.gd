@@ -13,6 +13,8 @@ var is_dead := false
 
 var state = State.IDLE
 
+var being_data : Being
+
 var speed := 25.0
 var direction := Vector2.ZERO
 var facing := Vector2.RIGHT
@@ -37,6 +39,9 @@ func _ready() -> void:
 	if animation.material:
 		animation.material = animation.material.duplicate()
 	_next_state()
+
+func setup(being: Being):
+	being_data = being	
 	
 ## Random Walking
 
@@ -121,8 +126,7 @@ func take_damage(amount):
 
 
 func die():
-	if is_dead:
-		return
+	if is_dead: return
 		
 	is_dead = true
 	
@@ -134,10 +138,12 @@ func die():
 	
 func abduct():
 	TweenFX.pop_out(self)
+	
+	EventBus.abducted.emit(being_data)
+	
 
 func flash_hit():
-	if animation.material == null:
-		return
+	if animation.material == null: return
 	
 	animation.material.set_shader_parameter("flash_color", Vector3(1.0, 1.0, 1.0))
 	animation.material.set_shader_parameter("flash_strength", 0.8)

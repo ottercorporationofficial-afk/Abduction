@@ -13,6 +13,7 @@ extends Node2D
 ## Level Information 
 var being_amount : int 
 var beings : Array
+var beings_abducted_amount := 0 
 
 
 var level_data : Level
@@ -29,6 +30,7 @@ var tile_size = Vector2(32, 32)
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	weapon_manager.setup(WeaponStorage.data)
+	EventBus.abducted.connect(_on_being_abducted)
 
 	
 func setup(level):
@@ -55,7 +57,7 @@ func setup(level):
 
 	grid.position = (screen_size - grid_pixel_size) / 2
 	
-	beings_captured.text = "0/" + str(being_amount)
+	beings_captured.text = str(beings_abducted_amount) + "/" + str(being_amount)
 	
 	spawn_beings()  
 	
@@ -73,7 +75,7 @@ func spawn_beings():
 		
 		var being = being_data.scene.instantiate()
 		
-		# optional setup
+		# setup
 		if being.has_method("setup"):
 			being.setup(being_data)
 		
@@ -87,6 +89,9 @@ func spawn_beings():
 		
 		
 		
- 
+func _on_being_abducted(being_data: Being):
+	beings_abducted_amount += 1 
+	beings_captured.text = str(beings_abducted_amount) + "/" + str(being_amount)
+	
 
  

@@ -137,6 +137,9 @@ func die():
 	animation_player.play("Downed")
 	
 func abduct():
+	if !is_dead:
+		return
+	
 	TweenFX.pop_out(self)
 	
 	EventBus.abducted.emit(being_data)

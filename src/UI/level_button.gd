@@ -8,6 +8,7 @@ extends PanelContainer
 var level = Level
 var is_locked: bool = false
 
+var popup_ref
 
 
 
@@ -24,3 +25,4 @@ func setup(level_data: Level):
 
 func _on_button_pressed() -> void:
 	SceneManager.load_level(level)
+	Globals.popups.remove_popup(popup_ref)

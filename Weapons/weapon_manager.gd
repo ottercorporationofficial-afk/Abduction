@@ -50,6 +50,9 @@ func next_weapon():
 	_update_weapon()
 
 func _input(event: InputEvent) -> void:
+	if MouseBlocker.is_mouse_locked():
+		return
+
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			shoot()

@@ -2,6 +2,11 @@ extends Node
 
 var popups: popup_manager
 
+var ui_blocking := false ## block input on non canvas layer stuff
+
+func _unhandled_input(event):
+	if ui_blocking:
+		get_viewport().set_input_as_handled()
 
 func flash_text(label: RichTextLabel,duration := 2.0):
 	
@@ -21,4 +26,4 @@ func flash_text(label: RichTextLabel,duration := 2.0):
 
 	# Hide at end (optional)
 	tween.tween_callback(func(): label.visible = false)
-	
+ 

@@ -3,7 +3,6 @@ extends Node2D
 
 ## Popups
 const LEVEL_COMPLETE_POPUP = preload("uid://bsy763ic4lp8d")
-@onready var popup_manager: popup_manager = $CanvasLayer/PopupManager
 
 
 
@@ -36,6 +35,11 @@ func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	weapon_manager.setup(WeaponStorage.data)
 	EventBus.abducted.connect(_on_being_abducted)
+	
+	
+	## Popup Instant Test 
+	#end_round()	
+	
 	
 func setup(level):
 	level_data = level 
@@ -98,11 +102,16 @@ func check_victory() -> bool:
 		return false
 		
 func end_round():
-	popup_manager.blocker.visible = true
+	## prevents getting blocked by blocker if popups instantly for any given reason	
+	await get_tree().process_frame
+	
 	
 	var popup = LEVEL_COMPLETE_POPUP.instantiate()
 	
-	popup_manager.add_popup(popup)
+	Globals.popups.add_popup(popup)
+
+	popup.setup(beings_abducted_amount,being_amount)
+	
 		
 func _on_being_abducted(being_data: Being):
 	beings_abducted_amount += 1 

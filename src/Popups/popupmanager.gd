@@ -2,55 +2,54 @@ class_name popup_manager
 extends Control
 
 @onready var darken: ColorRect = $Darken
-@onready var blocker: Control = $Blocker
- 
+
 var stack: Array[Control] = []
 
 func _ready():
 	Globals.popups = self
-
-func has_popup() ->  bool:
-	return not stack.is_empty()
 	
+	darken.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	darken.hide()
 
-func add_popup(popup) -> void:
-	popup.z_index = 100 
-	# Reparent Safely
+
+func has_popup() -> bool:
+	return not stack.is_empty()
+
+
+func add_popup(popup: Control) -> void:
+	popup.z_index = 101
+	
+	# Reparent safely
 	if popup.get_parent():
 		popup.get_parent().remove_child(popup)
-
+	
 	add_child(popup)
 	stack.append(popup)
-	
-	blocker.show()
-	move_child(blocker, get_child_count() - 2) # just below popup
-	move_child(popup, get_child_count() - 1)   # top	
-	
-	
-	
-	darken.show()
-	
-	
-	
- 	
-	
-		
+
+	_update_layout()
+
+
 func remove_popup(popup: Control) -> void:
 	if popup in stack:
 		stack.erase(popup)
 
 	if popup.get_parent() == self:
-		remove_child(popup)
+		popup.queue_free()
 
-	#InputBlocker.unlock(popup)
+	_update_layout()
 
+
+func _update_layout():
 	if stack.is_empty():
-		blocker.hide()
+		MouseBlocker.unlock_mouse(self)
 		darken.hide()
-	else:
-		var top = stack.back()
-		move_child(blocker, top.get_index())
-	
-func darken_screen():
+		return
+
+	MouseBlocker.lock_mouse(self)
 	darken.show()
-	
+
+	var top_popup = stack.back()
+
+	# Ensure correct draw order
+	move_child(darken, get_child_count() - 2)
+	move_child(top_popup, get_child_count() - 1)

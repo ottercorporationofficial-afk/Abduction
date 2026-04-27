@@ -27,6 +27,7 @@ BeingData="*uid://vbpg8uad7xa7"
 WeaponStorage="*uid://d2od8e2v6fvty"
 Weaponbehavior="*uid://dcf4eo0itowpe"
 EventBus="*uid://c2qfke7sy7vxe"
+MouseBlocker="*uid://dis0rd2jsmdv3"
 
 [display]
 

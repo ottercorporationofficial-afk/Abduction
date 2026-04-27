@@ -1,8 +1,33 @@
 [gd_scene format=3 uid="uid://cfms84dt6c1pc"]
 
 [ext_resource type="Script" uid="uid://4akyte21j580" path="res://src/main.gd" id="1_5q4o7"]
+[ext_resource type="Script" uid="uid://bomdc4pesnf6d" path="res://src/Popups/popupmanager.gd" id="2_5q4o7"]
 
 [node name="Main" type="Node2D" unique_id=1237780417]
 script = ExtResource("1_5q4o7")
 
 [node name="SceneHolder" type="Node2D" parent="." unique_id=170321782]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112143546]
+layer = 9
+
+[node name="PopupManager" type="Control" parent="CanvasLayer" unique_id=1416951904]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+script = ExtResource("2_5q4o7")
+
+[node name="Darken" type="ColorRect" parent="CanvasLayer/PopupManager" unique_id=1836875924]
+visible = false
+modulate = Color(0, 0, 0, 0.2784314)
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true

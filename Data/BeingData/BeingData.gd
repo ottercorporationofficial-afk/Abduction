@@ -9,6 +9,11 @@ var data: Array[Being] = [
 		"name": "Human",
 		"scene": HUMAN,
 	}),
+	Being.new({
+		"id" : "Mouse",
+		"name" : "Mouse",
+		"scene" : HUMAN,
+	})
 	]
 	
 func get_being(id: String) -> Being:

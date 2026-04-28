@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bnqrv0xcp46wa" path="res://Levels/being_container_control.gd" id="1_qq16r"]
 
 [node name="BeingContainerControl" type="Control" unique_id=283297624]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
@@ -29,3 +30,12 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
 render_target_update_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=295186221]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 128.0
+text = "Human"
+horizontal_alignment = 1

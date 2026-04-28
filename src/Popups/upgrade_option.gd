@@ -1,0 +1,2 @@
+class_name Upgrade_Option
+extends PanelContainer

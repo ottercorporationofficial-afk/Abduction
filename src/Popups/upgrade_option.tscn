@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c22h4sol8rujh"]
+
+[ext_resource type="Script" uid="uid://brf35j0ink8op" path="res://src/Popups/upgrade_option.gd" id="1_lrx1x"]
+[ext_resource type="Texture2D" uid="uid://to5pd36xogsb" path="res://Art/Research.png" id="2_y44md"]
+
+[node name="UpgradeOption" type="PanelContainer" unique_id=1269912122]
+offset_right = 275.0
+offset_bottom = 40.0
+script = ExtResource("1_lrx1x")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=989324377]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=468036526]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1776568700]
+custom_minimum_size = Vector2(46.08, 0)
+layout_mode = 2
+texture = ExtResource("2_y44md")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=400671030]
+layout_mode = 2
+text = "Blah Blah Blah Blah ok"
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer" unique_id=22326793]
+layout_mode = 2
+text = "Buy"

@@ -124,3 +124,4 @@ columns = 4
 script = ExtResource("5_cu5m6")
 
 [connection signal="pressed" from="Hud/BottomBar/Abduct" to="Hud" method="_on_abduct_pressed"]
+[connection signal="pressed" from="Hud/BottomBar/Upgrade" to="Hud" method="_on_upgrade_pressed"]

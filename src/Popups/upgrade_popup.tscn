@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bq3585i01p1ao"]
+
+[ext_resource type="Script" uid="uid://bo22onoh75af5" path="res://src/Popups/upgrade_popup.gd" id="1_hn0ix"]
+[ext_resource type="PackedScene" uid="uid://c22h4sol8rujh" path="res://src/Popups/upgrade_option.tscn" id="2_x3cmb"]
+
+[node name="UpgradePopup" type="VBoxContainer" unique_id=475570770]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -353.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hn0ix")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1373838857]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=144408510]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=710894939]
+layout_mode = 2
+alignment = 1
+
+[node name="UpgradeOption" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1269912122 instance=ExtResource("2_x3cmb")]
+layout_mode = 2
+
+[node name="UpgradeOption2" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=139777627 instance=ExtResource("2_x3cmb")]
+layout_mode = 2
+
+[node name="UpgradeOption3" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1186773157 instance=ExtResource("2_x3cmb")]
+layout_mode = 2
+
+[node name="UpgradeOption4" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1212534094 instance=ExtResource("2_x3cmb")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1736800571]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc2yfcqawt5yg" path="res://src/UI/hud.gd" id="1_s5aol"]
 [ext_resource type="Texture2D" uid="uid://to5pd36xogsb" path="res://Art/Research.png" id="4_3piki"]
+[ext_resource type="Script" uid="uid://c66k3rjngvgkn" path="res://Levels/grid_container.gd" id="5_cu5m6"]
 [ext_resource type="Texture2D" uid="uid://dx1q78bf5lh2x" path="res://Art/AbductButton.png" id="5_sf3sn"]
 [ext_resource type="Texture2D" uid="uid://dpxnv1fy0ofmw" path="res://Art/UpgradeButton.png" id="6_4jk7j"]
 
@@ -83,5 +84,33 @@ texture_normal = ExtResource("6_4jk7j")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2062415228]
 position = Vector2(320, 180)
+
+[node name="BeingContainers" type="Node2D" parent="." unique_id=1188752539]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=312772414]
+z_index = -2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 30.0
+offset_right = 539.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.14402682, 0.16638857, 0.17719325, 1)
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect" unique_id=2108180228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("5_cu5m6")
 
 [connection signal="pressed" from="Hud/BottomBar/Abduct" to="Hud" method="_on_abduct_pressed"]

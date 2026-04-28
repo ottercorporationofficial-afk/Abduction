@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var damage_number_scene: PackedScene
 
-
+@onready var health_bar: TextureProgressBar = $Health
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit: AudioStreamPlayer2D = $Hit
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -14,6 +14,8 @@ var is_dead := false
 var state = State.IDLE
 
 var being_data : Being
+
+var is_captured : bool = false 
 
 var speed := 25.0
 var direction := Vector2.ZERO
@@ -46,6 +48,10 @@ func setup(being: Being):
 ## Random Walking
 
 func _process(delta):
+	if is_captured:
+		health_bar.hide()
+		return
+	
 	if is_dead:
 		return
 		

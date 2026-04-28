@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://7od6u6ff8j5i"]
+
+[ext_resource type="Texture2D" uid="uid://5e6a53rqxj8p" path="res://Art/Box.png" id="1_d235u"]
+[ext_resource type="Script" uid="uid://djtd4wmueqon2" path="res://Levels/being_container.gd" id="1_pbmci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtpnf"]
+size = Vector2(100, 100)
+
+[node name="BeingContainer" type="Node2D" unique_id=1564481052]
+script = ExtResource("1_pbmci")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085224022]
+texture = ExtResource("1_d235u")
+
+[node name="TapBox" type="Area2D" parent="." unique_id=626106156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapBox" unique_id=1479869587]
+visible = false
+shape = SubResource("RectangleShape2D_dtpnf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1816475944]
+
+[connection signal="input_event" from="TapBox" to="." method="_on_tap_box_input_event"]

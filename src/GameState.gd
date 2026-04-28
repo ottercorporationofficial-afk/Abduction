@@ -15,6 +15,8 @@ func _ready() -> void:
 	unlocked_levels = 2
 	EventBus.abducted.connect(_on_being_abducted)
 	
+	beings_captured = {}
+	
 func add_being(being_name: String):
 	if beings_captured.has(being_name):
 		beings_captured[being_name] + 1

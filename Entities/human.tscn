@@ -293,11 +293,13 @@ animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585949678]
+visible = false
 shape = SubResource("CapsuleShape2D_0n6mi")
 
 [node name="ClickArea" type="Area2D" parent="." unique_id=790012575]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=839326471]
+visible = false
 shape = SubResource("CircleShape2D_kodwx")
 
 [node name="Health" type="TextureProgressBar" parent="." unique_id=670175701 node_paths=PackedStringArray("entity")]
